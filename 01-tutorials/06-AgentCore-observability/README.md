@@ -53,6 +53,9 @@ For more details on AgentCore Observability, please refer to [this](https://aws.
 │   ├── Braintrust/
 │   │   ├── requirements.txt
 │   │   └── runtime_with_strands_and_braintrust.ipynb
+│   ├── Instana/
+│   │   ├── requirements.txt
+│   │   └── runtime_with_strands_and_instana.ipynb
 │   ├── Langfuse/
 │   │   ├── requirements.txt
 │   │   └── runtime_with_strands_and_langfuse.ipynb
@@ -102,6 +105,7 @@ Examples of using agents hosted on Amazon Bedrock AgentCore Runtime with third-p
 
 - **Arize**: AI and Agent engineering platform
 - **Braintrust**: AI evaluation and monitoring platform
+- **Instana**: Real-Time APM and Observability Platform
 - **Langfuse**: LLM observability and analytics
 
 ### 5. Lambda AgentCore Invocation (05-Lambda-AgentCore-invocation)
