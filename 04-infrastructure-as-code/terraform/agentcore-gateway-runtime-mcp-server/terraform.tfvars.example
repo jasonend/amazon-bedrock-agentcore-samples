@@ -1,0 +1,59 @@
+# ============================================================================
+# MCP Server on AgentCore Runtime - Example Configuration
+# ============================================================================
+# Copy this file to terraform.tfvars and customize
+# Example: cp terraform.tfvars.example terraform.tfvars
+
+# Agent Configuration
+agent_name  = "MCPServerAgent"
+stack_name  = "agentcore-mcp-server"
+description = "MCP server runtime with JWT authentication"
+
+# Network Configuration
+network_mode = "PUBLIC" # PUBLIC or PRIVATE
+
+# Container Configuration
+ecr_repository_name = "mcp-server"
+image_tag           = "latest"
+
+# AWS Configuration
+aws_region  = "us-west-2"
+environment = "dev"
+
+# ============================================================================
+# Authentication Provider Configuration
+# ============================================================================
+# Choose your authentication provider: "cognito" or "entra_id"
+auth_provider = "cognito"
+
+# ----------------------------------------------------------------------------
+# Option 1: Cognito Authentication (default)
+# ----------------------------------------------------------------------------
+# When auth_provider = "cognito", a Cognito User Pool is automatically created
+# with a test user (testuser/MyPassword123!)
+# No additional configuration needed!
+
+# ----------------------------------------------------------------------------
+# Option 2: Entra ID Authentication
+# ----------------------------------------------------------------------------
+# When auth_provider = "entra_id", configure these values:
+# (Get these from Azure Portal > App Registrations)
+
+# auth_provider = "entra_id"
+# entra_id_tenant_id = "12345678-1234-1234-1234-123456789012"  # Your Entra ID Tenant ID
+# entra_id_client_id = "87654321-4321-4321-4321-210987654321"  # Your App Registration Client ID
+
+# See ENTRA_ID_SETUP.md for detailed Entra ID configuration instructions
+
+# ============================================================================
+# Optional: Environment Variables for MCP Server
+# ============================================================================
+# environment_variables = {
+#   LOG_LEVEL = "INFO"
+# }
+
+# Notes:
+# - Default: JWT auth via Cognito (test user: testuser/MyPassword123!)
+# - Alternative: Use Entra ID by setting auth_provider = "entra_id"
+# - MCP server code in mcp-server-code/ directory
+# - Three tools included: add_numbers, multiply_numbers, greet_user
